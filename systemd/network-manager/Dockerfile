@@ -13,7 +13,7 @@ RUN yum clean all && dnf -y remove yum
 RUN dnf -y --releasever=22 --disablerepo=rawhide --enablerepo=fedora --enablerepo=updates --enablerepo=updates-testing distribution-synchronization
 
 # Pull in NetworkManager that's recent enough
-RUN dnf -y copr enable lkundrak/NetworkManager
+RUN dnf -y copr enable lkundrak/NetworkManager-stable
 RUN dnf -y install NetworkManager
 
 # Journal fails to join netlink multicast group for audit logging.
