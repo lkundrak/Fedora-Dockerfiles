@@ -7,9 +7,13 @@ ENV container docker
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
 
+# Update to Fedora 24 snapshot
+RUN dnf -y install fedora-repos-rawhide.noarch
+RUN dnf --nogpgcheck -y --enablerepo=rawhide distribution-synchronization
+
 # Pull in NetworkManager that's recent enough
-#ADD lkundrak-NetworkManager-fedora-rawhide.repo /etc/yum.repos.d/lkundrak-NetworkManager-fedora-rawhide.repo
-ADD lkundrak-NetworkManager-fedora.repo /etc/yum.repos.d/lkundrak-NetworkManager-fedora.repo
+ADD lkundrak-NetworkManager-fedora-rawhide.repo /etc/yum.repos.d/lkundrak-NetworkManager-fedora-rawhide.repo
+#ADD lkundrak-NetworkManager-fedora.repo /etc/yum.repos.d/lkundrak-NetworkManager-fedora.repo
 RUN dnf -y install NetworkManager
 
 # /etc/fstab makes no sense. Nor does remounting anything.

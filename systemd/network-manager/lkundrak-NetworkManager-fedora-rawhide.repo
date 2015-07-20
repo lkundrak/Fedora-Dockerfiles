@@ -1,0 +1,8 @@
+[lkundrak-NetworkManager]
+name=Copr repo for NetworkManager owned by lkundrak
+baseurl=https://copr-be.cloud.fedoraproject.org/results/lkundrak/NetworkManager/fedora-rawhide-$basearch/
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/lkundrak/NetworkManager/pubkey.gpg
+enabled=1
+enabled_metadata=1
